@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SiagaHarga | Pantau Harga Bahan Pokok Semarang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#beranda">Siaga<span>Harga</span></a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#harga">Harga</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-gold" href="#peringatan">Atur Peringatan</a>
+    </header>
+
+    <main>
+      <section id="beranda" class="hero">
+        <h1>Harga Pangan Terpantau <br />Untuk Setiap Dapur.</h1>
+        <span class="brush" aria-hidden="true"></span>
+        <p>
+          SiagaHarga membantu warung makan dan katering di Semarang memantau
+          harga bahan pokok dan menerima peringatan sebelum harga naik.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-outline" href="#harga">Lihat Harga Hari Ini</a>
+          <p class="hero-contact">
+            <span class="dot" aria-hidden="true"></span> Peringatan lewat
+            Telegram
+          </p>
+        </div>
+      </section>
+
+      <section class="panel-wrap">
+        <article class="panel">
+          <div class="panel-text">
+            <p class="pill">Tingkat keyakinan: sedang</p>
+            <h2>
+              Harga cabai rawit merah diperkirakan naik dalam 7 hari ke depan.
+            </h2>
+            <p class="muted">
+              Contoh peringatan dini. Pertimbangkan menambah stok lebih awal
+              jika kebutuhan Anda tinggi pekan depan.
+            </p>
+          </div>
+          <div class="panel-visual">
+            <div class="circle" aria-hidden="true"></div>
+            <ul class="chips">
+              <li>Data resmi pemerintah</li>
+              <li>Tren 30 hari</li>
+              <li>Prakiraan 7 hari</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="tentang" class="section split">
+        <div class="split-visual">
+          <span class="tag">Semarang, Jawa Tengah</span>
+          <div class="split-badge">
+            <strong>7</strong>
+            <span>Hari prakiraan ke depan</span>
+          </div>
+        </div>
+        <div class="split-text">
+          <h2>Di Mana Harga Bertemu Pelakunya.</h2>
+          <p>
+            Pelaku usaha makanan sering baru tahu harga cabai atau bawang naik
+            setelah membayar lebih mahal. SiagaHarga memberi tahu lebih awal,
+            dalam bahasa sederhana, lewat aplikasi pesan yang sudah dipakai
+            sehari-hari.
+          </p>
+          <a class="btn btn-gold" href="#layanan">Pelajari Lebih Lanjut</a>
+        </div>
+      </section>
+
+      <section id="harga" class="section center">
+        <h2>Harga Hari Ini</h2>
+        <p class="lead">
+          Harga contoh per kilogram di pasar tradisional Semarang. Pilih
+          kategori untuk menyaring.
+        </p>
+        <div class="filters" id="filters">
+          <button type="button" class="filter active" data-kategori="semua">
+            Semua
+          </button>
+          <button type="button" class="filter" data-kategori="sayur">
+            Bumbu dan sayur
+          </button>
+          <button type="button" class="filter" data-kategori="pokok">
+            Pangan pokok
+          </button>
+          <button type="button" class="filter" data-kategori="protein">
+            Protein
+          </button>
+        </div>
+        <div class="price-grid" id="price-grid"></div>
+      </section>
+
+      <section class="band" aria-label="Sumber data">
+        <ul class="band-list">
+          <li>PIHPS Bank Indonesia</li>
+          <li>Panel Harga Pangan</li>
+          <li>SP2KP Kemendag</li>
+          <li>BMKG</li>
+          <li>Telegram Bot</li>
+        </ul>
+      </section>
+
+      <section id="layanan" class="section center">
+        <h2>Layanan Kami</h2>
+        <p class="lead">
+          Empat langkah sederhana dari memantau harga sampai mengambil
+          keputusan.
+        </p>
+        <div class="service-grid">
+          <article class="service featured">
+            <h3>Pantau</h3>
+            <p>Harga terbaru dan tren 30 hari dalam satu layar.</p>
+          </article>
+          <article class="service">
+            <h3>Prakirakan</h3>
+            <p>Arah harga 7 hari ke depan beserta tingkat keyakinan.</p>
+          </article>
+          <article class="service">
+            <h3>Beri Tahu</h3>
+            <p>Peringatan dikirim saat harga naik atau melewati batas Anda.</p>
+          </article>
+          <article class="service">
+            <h3>Saran Stok</h3>
+            <p>Saran tindakan sederhana untuk stok dan harga jual.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="peringatan" class="section center">
+        <h2>Atur Peringatan Harga</h2>
+        <p class="lead">
+          Pilih bahan dan isi batas harga per kilogram. Kami cek terhadap harga
+          hari ini.
+        </p>
+        <div class="alert-form">
+          <div class="field">
+            <label for="bahan">Bahan</label>
+            <select id="bahan"></select>
+          </div>
+          <div class="field">
+            <label for="batas">Batas harga (Rp/kg)</label>
+            <input
+              type="number"
+              id="batas"
+              min="1"
+              placeholder="Contoh: 70000"
+            />
+          </div>
+          <button type="button" id="btn-simpan" class="btn btn-gold">
+            cek peringatan
+          </button>
+          <p id="pesan" class="pesan" role="status"></p>
+        </div>
+      </section>
+
+      <section id="faq" class="section center">
+        <h2>Pertanyaan Umum</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false">
+              Dari mana data harga berasal?
+            </button>
+            <div class="faq-a">
+              <p>
+                Dari sumber resmi seperti PIHPS Bank Indonesia dan SP2KP
+                Kemendag.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false">
+              Bagaimana peringatan dikirim?
+            </button>
+            <div class="faq-a">
+              <p>
+                Lewat Telegram saat harga naik atau melewati batas yang Anda
+                atur.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false">
+              Seberapa akurat prakiraannya?
+            </button>
+            <div class="faq-a">
+              <p>
+                Setiap prakiraan disertai tingkat keyakinan: rendah, sedang,
+                atau tinggi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stats">
+        <h2>Dirancang Untuk Dapur Yang Teliti</h2>
+        <ul class="stat-list">
+          <li><strong>8</strong><span>Komoditas contoh</span></li>
+          <li><strong>30</strong><span>Hari riwayat tren</span></li>
+          <li><strong>7</strong><span>Hari prakiraan</span></li>
+          <li><strong>3</strong><span>Tingkat keyakinan</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer id="kontak" class="site-footer">
+      <p>SiagaHarga, untuk pelaku usaha makanan di Semarang.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
