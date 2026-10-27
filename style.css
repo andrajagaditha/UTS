@@ -26,7 +26,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; }
 /* Header */
 .site-header {
   position: sticky; top: 0; z-index: 10;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 16px;
   padding: 16px 6%;
   background: rgba(7, 32, 26, 0.92);
 }
@@ -40,15 +40,15 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; }
 .nav-list a:hover { color: var(--gold); }
 
 /* Tombol */
-.btn {
+.tombol {
   display: inline-block; padding: 11px 24px; border-radius: 999px; border: 1px solid transparent;
   font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer;
 }
-.btn-gold { background: var(--gold); color: var(--bg); }
-.btn-gold:hover { background: var(--cream); }
-.btn-outline { background: transparent; color: var(--cream); border-color: var(--cream); }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.btn:focus-visible, .filter:focus-visible, select:focus-visible, input:focus-visible, .nav-list a:focus-visible {
+.tombol-gold { background: var(--gold); color: var(--bg); }
+.tombol-gold:hover { background: var(--cream); color: var(--bg); }
+.tombol-outline { background: transparent; color: var(--cream); border-color: var(--cream); }
+.tombol-outline:hover { border-color: var(--gold); color: var(--gold); }
+.tombol:focus-visible, .filter:focus-visible, select:focus-visible, input:focus-visible, .nav-list a:focus-visible {
   outline: 3px solid var(--gold); outline-offset: 2px;
 }
 
@@ -87,7 +87,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; }
 .section { padding: 96px 6% 40px; }
 .section.center { text-align: center; }
 .section h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); margin-bottom: 12px; }
-.lead { max-width: 60ch; margin: 0 auto 28px; color: var(--muted); }
+.lead { max-width: 60ch; margin: 0 auto 28px; color: var(--muted); font-size: 1rem; font-weight: 400; }
 
 /* Split (Flexbox) */
 .split { display: flex; align-items: center; gap: 56px; }
@@ -143,7 +143,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; }
 }
 .field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 200px; }
 label { font-weight: 600; font-size: 0.9rem; }
-select, input {
+select, input, textarea {
   padding: 11px 14px; border: 1px solid #2a5a47; border-radius: 12px;
   font-size: 1rem; background: var(--bg); color: var(--cream);
 }
@@ -159,15 +159,6 @@ select, input {
 .stat-list { flex: 2; display: flex; justify-content: space-between; gap: 24px; }
 .stat-list strong { display: block; font-family: var(--serif); font-size: 2.6rem; color: var(--gold); line-height: 1.1; }
 .stat-list span { font-size: 0.85rem; color: var(--muted); }
-
-
-.faq { max-width: 720px; margin: 0 auto; text-align: left; }
-.faq-item { border: 1px solid #12392d; border-radius: 12px; background: var(--bg-2); margin-bottom: 12px; }
-.faq-q { width: 100%; padding: 16px 20px; background: none; border: 0; color: var(--cream); font-size: 1rem; font-weight: 600; text-align: left; cursor: pointer; }
-.faq-q:hover { color: var(--gold); }
-.faq-a { display: none; padding: 0 20px 16px; color: var(--muted); }
-.faq-item.open .faq-a { display: block; }
-.faq-item.open { border-color: var(--gold); }
 
 /* Footer */
 .site-footer { padding: 32px 6%; background: #041510; color: var(--muted); font-size: 0.9rem; text-align: center; }
@@ -189,4 +180,101 @@ select, input {
   .stat-list li { flex: 1 1 40%; }
   .band-list { justify-content: center; text-align: center; }
   .section { padding: 64px 6% 32px; }
+}
+
+/* Kompatibilitas Bootstrap: kembalikan reset dan warna tautan */
+h1, h2, h3, h4, h5, h6, p, ul, ol, fieldset, legend { margin: 0; padding: 0; }
+a:hover { color: inherit; }
+
+/* Form pendaftaran (komponen Bootstrap, warna disesuaikan tema) */
+.form-daftar {
+  max-width: 760px; margin: 0 auto; padding: 28px; text-align: left;
+  border-radius: var(--radius); background: var(--bg-2); border: 1px solid #12392d;
+}
+.form-daftar .mb-3 { margin-bottom: 18px; }
+.form-daftar .form-label, .form-daftar legend {
+  display: block; float: none; width: 100%; margin-bottom: 6px;
+  font-family: inherit; font-size: 0.9rem; font-weight: 600; color: var(--cream);
+}
+.form-control, .form-select {
+  display: block; width: 100%;
+  background-color: var(--bg); color: var(--cream);
+  border: 1px solid #2a5a47; border-radius: 12px; padding: 11px 14px;
+}
+.form-control::placeholder { color: #7f917f; }
+.form-control:focus, .form-select:focus {
+  background-color: var(--bg); color: var(--cream);
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(228, 185, 92, 0.3);
+}
+.form-select {
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f1efe6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.form-select option { background: var(--bg); color: var(--cream); }
+.form-check-inline { margin-right: 20px; }
+.form-check-input { background-color: var(--bg); border: 1px solid #5a8a74; }
+.form-check-input:checked { background-color: var(--gold); border-color: var(--gold); }
+.form-check-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(228, 185, 92, 0.3); }
+.form-check-label { cursor: pointer; }
+.form-daftar .pesan { min-height: 0; margin-top: 16px; }
+
+/* Efek hover */
+.tombol, .service, .chips li, .band-list li, .stat-list li, .split-badge {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.tombol:hover { transform: translateY(-2px); }
+.service:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35); }
+.chips li:hover { background: var(--gold); color: var(--bg); }
+.band-list li:hover { transform: scale(1.08); }
+.stat-list li:hover strong { color: var(--cream); }
+.split-badge:hover { transform: rotate(-3deg) scale(1.05); }
+.identitas { margin-top: 8px; color: var(--cream); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tombol, .service, .chips li, .band-list li, .stat-list li, .split-badge { transition: none; }
+  .tombol:hover, .service:hover, .band-list li:hover, .split-badge:hover { transform: none; }
+}
+
+/* Percantik form pendaftaran */
+.form-daftar {
+  max-width: 680px;
+  padding: clamp(22px, 4vw, 40px);
+  background: linear-gradient(160deg, #0f3326 0%, var(--bg-2) 60%);
+  border: 1px solid #1c4a39;
+  border-top: 4px solid var(--gold);
+  border-radius: 22px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+.form-daftar .form-label, .form-daftar legend {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+}
+.form-daftar .form-label::before, .form-daftar legend::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+}
+.form-control, .form-select {
+  padding: 14px 16px; background-color: #061a14; border-radius: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control:hover, .form-select:hover { border-color: #4b8a70; }
+.form-control:focus, .form-select:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(228, 185, 92, 0.25); }
+textarea.form-control { min-height: 110px; resize: vertical; }
+
+/* Hobi tampil sebagai pil yang menyala saat dipilih */
+.form-daftar .form-check-inline {
+  margin: 0 10px 10px 0; padding: 9px 18px 9px 2.5em;
+  border: 1px solid #2a5a47; border-radius: 999px; background: rgba(255, 255, 255, 0.03);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.form-daftar .form-check-inline .form-check-input { margin-left: -1.6em; margin-top: 0.2em; }
+.form-daftar .form-check-inline:hover { border-color: var(--gold); }
+.form-daftar .form-check-inline:has(.form-check-input:checked) { background: rgba(228, 185, 92, 0.16); border-color: var(--gold); }
+.form-daftar .form-check-label { font-size: 0.95rem; }
+
+.form-daftar .tombol { width: 100%; margin-top: 6px; padding: 14px; font-size: 1.05rem; }
+.form-daftar .pesan { border-radius: 14px; }
+
+/* Tautan menu: berhenti di bawah header yang menempel */
+html { scroll-padding-top: 110px; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }

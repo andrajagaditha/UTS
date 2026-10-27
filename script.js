@@ -83,14 +83,26 @@ tombolSimpan.addEventListener("click", function () {
   }
 });
 
-// ===== Fitur 3: accordion FAQ =====
-const faq = document.querySelector(".faq");
-
-faq.addEventListener("click", function (e) {
-  const tombol = e.target.closest(".faq-q");
-  if (!tombol) return;
-  const terbuka = tombol.parentElement.classList.toggle("open");
-  tombol.setAttribute("aria-expanded", terbuka);
-});
-
 tampilkanKartu("semua");
+
+// ===== Fitur 3: form pendaftaran (Nama, Alamat, Kota, Hobi) =====
+const formDaftar = document.querySelector("#form-daftar");
+const hasilForm = document.querySelector("#hasil-form");
+
+formDaftar.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const nama = document.querySelector("#nama").value.trim();
+  const alamat = document.querySelector("#alamat").value.trim();
+  const kota = document.querySelector("#kota").value;
+  const hobi = Array.from(document.querySelectorAll("input[name='hobi']:checked"))
+    .map(function (h) { return h.value; });
+
+  hasilForm.classList.remove("ok", "error");
+  if (nama === "" || alamat === "" || kota === "") {
+    hasilForm.textContent = "Nama, alamat, dan kota wajib diisi.";
+    hasilForm.classList.add("error");
+    return;
+  }
+  hasilForm.textContent = "Terima kasih, " + nama + " dari " + kota + ". Hobi: " + (hobi.length ? hobi.join(", ") : "belum dipilih") + ".";
+  hasilForm.classList.add("ok");
+});
